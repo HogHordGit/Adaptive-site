@@ -32,6 +32,7 @@ body {
     font-weight: 500;
     color: $main_font_color;
     font-family: Montserrat;
+    background-color: #FAFAFA;;
 }
 
 .wrapper {
@@ -65,7 +66,34 @@ body {
     object-fit: cover;
 }
 
+/* general styles ---------------------------------------------------------------------------*/
+.header-block {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 
+    &__title {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        @include adaptive_font(40, 30);
+        @include adaptive_line-height(57, 40);
+        letter-spacing: 0.2px;
+    }
+    &__sub-title {
+        max-width: 500px;
+        font-style: normal;
+        font-weight: 500;
+        @include adaptive_font(14, 13);
+        @include adaptive_line-height(20, 14);
+        letter-spacing: 0.2px;
+        color: #737373;
+    }
+    & > *:not(:last-child) {
+        margin: 0px 0px 10px 0px;
+    }
+}
 
 /* header styles ---------------------------------------------------------------------------*/
 .header {
@@ -165,6 +193,10 @@ body {
         &__cards {
             margin: -130px 0px 0px 0px;
         }
+    }
+
+    &__advantages {
+        position: relative
     }
 }
 
@@ -284,7 +316,6 @@ body {
     &__button_orange {
         background-color: #FF7B47;
     }
-    
     &__button_border {
         color: #0D5C63;
         border: 1px solid #0D5C63;
@@ -299,23 +330,22 @@ body {
         min-width: 300px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
         &__body {
             display: block;
-            max-width: calc(100vw / 1.5);
+            max-width: 75%;
             margin: 0px auto;
         }
         &__body > *:not(:last-child) {
             margin: 0px 0px 10px 0px;
         }
-    
     }
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
         &__body {
             min-width: 100%;
         }
     }
-
+   
     &__column {
         padding: 0px 15px;
         flex: 0 1 33.333%;
@@ -330,6 +360,9 @@ body {
     @media (max-width: 500px) {
         &__item {
             padding: 25px;
+        }
+        &__column {
+            padding: 0;
         }
     }
 }   
@@ -346,11 +379,9 @@ body {
         letter-spacing: 0.1px;
         color: #252B42;
     }
-    
     &__green .item-card__title {
         color: #fff;
     }
-    
     &__text {
         font-style: normal;
         font-weight: 500;
@@ -359,13 +390,74 @@ body {
         letter-spacing: 0.2px;
         color: #737373;
     }
-    
     &__green .item-card__text {
         color: #fff;
     }
-    
     & > *:not(:last-child) {
         margin: 0px 0px 10px 0px;
+    }
+}
+
+/* main styles || advantages */
+
+.advantages {
+    padding: 80px 0;
+
+    &__header {
+        margin: 0px 0px 50px 0px;
+    }
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px -15px -30px;
+    }
+    &__column {
+        padding: 0px 15px;
+        margin: 0px 0px 30px 0px;
+        flex: 0 1 25%;
+    }
+
+    @media (max-width: 1000px) {
+        &__column {
+            flex: 0 1 50%;
+        }
+    }
+    @media (max-width: 560px) {
+        &__column {
+            flex: 0 1 100%;
+        }
+    }
+
+    &__item {
+        box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+        text-align: center;
+        padding: 30px 40px;
+        background-color: #fff;
+        height: 100%;
+    }
+    &__item > *:not(:last-child) {
+        margin: 0px 0px 10px 0px;
+    }
+    &__icon {
+        height: 40px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__value {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        @include adaptive_line-height(57, 40);
+        letter-spacing: 0.2px;
+    }
+    &__text {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 15px;
+        @include adaptive_line-height(24, 16);
+        letter-spacing: 0.1px;
+        color: #737373;
     }
 }
 
